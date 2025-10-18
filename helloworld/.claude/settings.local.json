@@ -3,7 +3,8 @@
     "allow": [
       "SlashCommand(/speckit.plan)",
       "Bash(.specify/scripts/bash/setup-plan.sh --json)",
-      "Read(//Users/ks_128/Desktop/spec_kit_proj/specs/001-web-markdown-editor/**)"
+      "Read(//Users/ks_128/Desktop/spec_kit_proj/specs/001-web-markdown-editor/**)",
+      "Bash(npm run build)"
     ],
     "deny": [],
     "ask": []
