@@ -1,0 +1,228 @@
+/* CSS Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --bg-color: #ffffff;
+  --surface-color: #f8fafc;
+  --border-color: #e2e8f0;
+  --text-color: #1e293b;
+  --text-secondary: #64748b;
+  --editor-bg: #ffffff;
+  --preview-bg: #f8fafc;
+  --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+.toolbar {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toolbar h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Editor Container */
+.editor-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.editor-pane, .preview-pane {
+  overflow: auto;
+  padding: 1.5rem;
+}
+
+.editor-pane {
+  background-color: var(--editor-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+.preview-pane {
+  background-color: var(--preview-bg);
+}
+
+/* Editor Textarea */
+#editor {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+#editor::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* Preview Styling */
+#preview {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+#preview h1, #preview h2, #preview h3,
+#preview h4, #preview h5, #preview h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#preview h1 { font-size: 2rem; }
+#preview h2 { font-size: 1.5rem; }
+#preview h3 { font-size: 1.25rem; }
+#preview h4 { font-size: 1.1rem; }
+#preview h5 { font-size: 1rem; }
+#preview h6 { font-size: 0.9rem; }
+
+#preview p {
+  margin-bottom: 1rem;
+}
+
+#preview ul, #preview ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#preview li {
+  margin-bottom: 0.25rem;
+}
+
+#preview code {
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+#preview pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+#preview pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+#preview blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+#preview a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#preview a:hover {
+  text-decoration: underline;
+}
+
+#preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+#preview hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+#preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+#preview th, #preview td {
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+#preview th {
+  background-color: var(--surface-color);
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .editor-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .editor-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
